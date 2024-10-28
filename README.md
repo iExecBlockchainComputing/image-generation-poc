@@ -1,6 +1,6 @@
 #### Running locally 
 
-1. CD into Image-Generation and build docker build
+1. CD into Image-Generation and run docker build
 ```console
 docker build --tag ig .
 ```
