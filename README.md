@@ -1,5 +1,7 @@
 #### Running locally 
 
+(CURRENTLY NOT COMPATIBLE WITH iExec)
+
 1. CD into Image-Generation and run docker build
 ```console
 docker build --tag ig .
