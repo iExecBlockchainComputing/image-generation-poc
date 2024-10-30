@@ -8,6 +8,8 @@ import json
 
 input_directory = os.environ["IEXEC_IN"]
 output_directory = os.environ["IEXEC_OUT"]
+dataset = os.environ["IEXEC_DATASET_FILENAME"]
+
 
 def saveImage(image, filename="generated_image.png"): 
     output_path = os.path.join(output_directory, filename)
@@ -20,11 +22,10 @@ def saveImage(image, filename="generated_image.png"):
 
 
 def openAndReadPrompt():
-    for filename in os.listdir(input_directory):
-        if filename.endswith(".txt"):
-            with open(os.path.join(input_directory, filename), 'r') as file:
-                prompt = file.readline().strip()
-                return prompt
+    if dataset.endswith(".txt"):
+        with open(os.path.join(input_directory, dataset), 'r') as file:
+            prompt = file.readline().strip()
+            return prompt
     return None
 
 def loadModel(path):
