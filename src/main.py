@@ -22,10 +22,9 @@ def saveImage(image, filename="generated_image.png"):
 
 
 def openAndReadPrompt():
-    if dataset.endswith(".txt"):
-        with open(os.path.join(input_directory, dataset), 'r') as file:
-            prompt = file.readline().strip()
-            return prompt
+    with open(os.path.join(input_directory, input_directory/dataset), 'r') as file:
+        prompt = file.readline().strip()
+        return prompt
     return None
 
 def loadModel(path):
