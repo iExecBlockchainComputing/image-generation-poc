@@ -22,7 +22,7 @@ def saveImage(image, filename="generated_image.png"):
 
 
 def openAndReadPrompt():
-    with open(os.path.join(input_directory, input_directory/dataset), 'r') as file:
+    with open(os.path.join(input_directory, dataset), 'r') as file:
         prompt = file.readline().strip()
         return prompt
     return None
