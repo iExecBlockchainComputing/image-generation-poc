@@ -1,4 +1,4 @@
-import sys 
+import sys
 import os
 import time
 import torch
@@ -9,13 +9,13 @@ import json
 input_directory = os.environ["IEXEC_IN"]
 output_directory = os.environ["IEXEC_OUT"]
 
-def saveImage(image, filename="generated_image.png"): 
+def saveImage(image, filename="generated_image.png"):
     output_path = os.path.join(output_directory, filename)
     image.save(output_path)
 
     with open(os.path.join(output_directory, 'computed.json'), 'w') as f:
         json.dump({"deterministic-output-path": output_path}, f)
-    
+
     return
 
 
@@ -32,25 +32,26 @@ def loadModel(path):
     return pipe.to("cpu")
 
 
-def generateImage(pipe, prompt): 
+def generateImage(pipe, prompt):
     return pipe(prompt).images[0]
-    
+
 
 
 print("reached")
 model_path = "CompVis/stable-diffusion-v1-4" # Image generator
 
-prompt = openAndReadPrompt() 
-if prompt is None: print("No prompt provided")
-else: 
+prompt = openAndReadPrompt()
+if prompt is None:
+    print("No prompt provided")
+else:
     print("Provided Prompt: ", prompt)
 
     model = loadModel(model_path)
     image = generateImage(model, prompt)
 
     saveImage(image)
-    
-    
-    
-    
-    
+
+
+
+
+
