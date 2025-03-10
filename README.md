@@ -63,22 +63,18 @@ Follow the iExec guide for setting up a local dApp:
 
 ---
 
-## 🔐 **Using Encrypted Dataset**
+## 🔐 **Using Requester Secret**
 
-1️⃣ **Deploy Your encrypted dataset on iExec**  
-This PoC uses the **prompt.txt** file as an encrypted dataset. In order to use it, please follow the official iExec guide: 
-🔗 [Create Encrypted Dataset](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/sgx-encrypted-dataset)
-
-2️⃣ **Publish a Dataset Order**  
-   Once deployed, you must publish a dataset order to allow usage:  
-   🔗 [Manage Dataset Orders](https://protocol.docs.iex.ec/for-developers/advanced/manage-your-datasetorders)    
+1️⃣ **Deploy your requester secret on iExec**  
+This PoC uses requester secrets. In order to use it, please follow the official iExec guide: 
+🔗 [Create Encrypted Dataset](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/requester-secrets#push-some-requester-secrets-to-the-sms)
 
 ---
 
 ## Run dapp on iExec (only with the iExec SDK 8.13.0-tdx)
 
-- Dapp Address: ```0x5e2fe1de5ba6ab3b809f7f5a43dc3e5f0ef2ce21```
+- Dapp Address: ```0xDEBE66164C0026f2dBCcaCF2364F07a42c441f2f```
 
 ```shell 
-    iexec app run --dataset $YOUR_DATASET_ADDRESS --workerpool tdx-labs.pools.iexec.eth --tag tee,tdx 0x5e2fe1de5ba6ab3b809f7f5a43dc3e5f0ef2ce21
+    iexec app run --secret 1=$YOUR_SECRET --workerpool tdx-labs.pools.iexec.eth --tag tee,tdx 0xDEBE66164C0026f2dBCcaCF2364F07a42c441f2f
 ```

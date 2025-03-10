@@ -8,7 +8,7 @@ import json
 
 input_directory = os.environ["IEXEC_IN"]
 output_directory = os.environ["IEXEC_OUT"]
-dataset = os.environ["IEXEC_DATASET_FILENAME"]
+prompt = os.environ["IEXEC_REQUESTER_SECRET_1"]
 
 
 def saveImage(image, filename="generated_image.png"): 
@@ -19,13 +19,6 @@ def saveImage(image, filename="generated_image.png"):
         json.dump({"deterministic-output-path": output_path}, f)
     
     return
-
-
-def openAndReadPrompt():
-    with open(os.path.join(input_directory, dataset), 'r') as file:
-        prompt = file.readline().strip()
-        return prompt
-    return None
 
 def loadModel(path):
     pipe = StableDiffusionPipeline.from_pretrained(path)
@@ -40,7 +33,6 @@ def generateImage(pipe, prompt):
 print("reached")
 model_path = "CompVis/stable-diffusion-v1-4" # Image generator
 
-prompt = openAndReadPrompt() 
 if prompt is None: print("No prompt provided")
 else: 
     print("Provided Prompt: ", prompt)
