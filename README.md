@@ -1,47 +1,84 @@
-_This repository has been deprecated and the project moved to a new public repository. Please only refer to [image-generation-poc](https://github.com/iExecBlockchainComputing/Image-Generation) from now on._
+> **Important**  
+>
+> This PoC is currently NOT compatible with Scone but compatible with TDX.  
+> Please use it with the iExec SDK 8.13.0-tdx (If you do not have access to it, please contact us).
 
-(CURRENTLY NOT COMPATIBLE WITH Scone but compatible with TDX)
+# Image Generator dApp
 
-# Image Generation
-This Decentralized application (dApp) generates an image based on a provided text prompt and verifies whether the generated image aligns with the given description. The dApp utilizes state-of-the-art AI models for text-to-image generation, ensuring high-quality and relevant outputs.
+The **Image Generator dApp** is a **Confidential Computing application** that generates an image based on a provided text prompt. It leverages **iExec's Trusted Execution Environments (TEE)** and the **CompVis/stable-diffusion-v1-4 model** from Hugging Face for secure, private computation.
 
-The current implementation uses the BLIP model from Hugging Face (https://huggingface.co/docs/transformers/en/model_doc/blip) for image captioning and validation. Additionally, it incorporates a text-to-image model to generate images based on user-provided prompts.
+## 🚀 Features
+- **Confidential Computing** ensures that prompts remain private and are processed securely.
+- **Decentralized Execution** using the iExec network.
+- **CompVis/stable-diffusion-v1-4 model-based image generation** to generate an image based on its textual description.
 
-To ensure privacy and security, the dApp leverages Confidential Computing to perform the computations securely, preventing unauthorized access to sensitive data.
+---
 
-This dApp incentivizes users to provide meaningful and descriptive prompts, aiming for high alignment between the generated image and the intended description.
+## 🏗 **Run the dApp Locally**
 
-### Input 
-The dApp takes one input namely an iExec dataset. 
+### 1️⃣ **Set Up Your Development Environment**
+Follow the iExec guide for setting up a local dApp:  
+🔗 [Your First iExec App](https://protocol.docs.iex.ec/for-developers/your-first-app)
 
-- iExec Dataset (private): an encrypted file, which only gets decrypted inside the enclave, ensuring no data gets revealed to anyone. 
+### 2️⃣ **Build and Run the dApp Locally**
+1. **Build the docker image**:
 
-### Output 
-The (public) output of the dApp is the generated image itself, ensuring that users receive a visual representation of their input prompt while maintaining data confidentiality.
 
-### Run dapp locally 
-1. Generate the docker image
+   ```sh  
+   docker build . -t image-generator  
+    ```
+    
+2. **Prepare input file**:  
+   Create a folder called `iexec_in` and put inside a **prompt.txt file** containing your prompt.  
+   
+3. **Run the dApp in Docker**:  
 
-```console
-docker build --tag ig .
+
+   ```sh  
+   docker run --rm \  
+   -v ./iexec_in:/iexec_in \  
+   -v ./iexec_out:/iexec_out \  
+   -e IEXEC_IN=/iexec_in \  
+   -e IEXEC_OUT=/iexec_out \  
+   -e IEXEC_DATASET_FILENAME=prompt.txt \
+   image-generator
+    ```
+---
+
+## 🏗 **Deploy and Run on iExec Stack** 🌍
+
+1️⃣ **Build and Push Image to Docker Hub**  
+
+   ```sh  
+   docker build . -t yourdockerhubusername/image-generator:1.0.0 
+   docker push yourdockerhubusername/image-generator:1.0.0  
 ```
+2️⃣ **Deploy Your dApp on iExec**  
+   Follow the official iExec guide to deploy a TDX dApp:  
+   🔗 [Deploy a TDX dApp](https://protocol.docs.iex.ec/for-developers/confidential-computing/create-your-first-sgx-app)  
 
-2. Run the image with the example prompt located in the src/iexec_in folder. You have to update the path
+3️⃣ **Publish a dApp Order**  
+   Once deployed, you must publish a dApp order to allow usage:  
+   🔗 [Manage App Orders](https://protocol.docs.iex.ec/for-developers/advanced/manage-your-apporders)  
 
-```console
-docker run --rm \
-    -v ./src/iexec_in:/iexec_in \
-    -v ./src/iexec_out:/iexec_out \
-    -e IEXEC_IN=/iexec_in \
-    -e IEXEC_OUT=/iexec_out \
-    -e IEXEC_DATASET_FILENAME=prompt.txt \
-    ig
-```
+---
 
-### Run dapp on iExec (only with the iExec SDK 8.13.0-tdx)
+## 🔐 **Using Encrypted Dataset**
 
-- Dapp Address: 
+1️⃣ **Deploy Your encrypted dataset on iExec**  
+This PoC uses the **prompt.txt** file as an encrypted dataset. In order to use it, please follow the official iExec guide: 
+🔗 [Create Encrypted Dataset](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/sgx-encrypted-dataset)
+
+2️⃣ **Publish a Dataset Order**  
+   Once deployed, you must publish a dataset order to allow usage:  
+   🔗 [Manage Dataset Orders](https://protocol.docs.iex.ec/for-developers/advanced/manage-your-datasetorders)    
+
+---
+
+## Run dapp on iExec (only with the iExec SDK 8.13.0-tdx)
+
+- Dapp Address: ```0x5e2fe1de5ba6ab3b809f7f5a43dc3e5f0ef2ce21```
 
 ```shell 
-    iexec app run --dataset $YOUR_DATASET_ADDRESS --workerpool tdx-labs.pools.iexec.eth --tag tee,tdx
+    iexec app run --dataset $YOUR_DATASET_ADDRESS --workerpool tdx-labs.pools.iexec.eth --tag tee,tdx 0x5e2fe1de5ba6ab3b809f7f5a43dc3e5f0ef2ce21
 ```
