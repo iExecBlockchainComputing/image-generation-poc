@@ -1,4 +1,4 @@
-import sys 
+import sys
 import os
 import time
 import torch
@@ -11,13 +11,13 @@ output_directory = os.environ["IEXEC_OUT"]
 prompt = os.environ["IEXEC_REQUESTER_SECRET_1"]
 
 
-def saveImage(image, filename="generated_image.png"): 
+def saveImage(image, filename="generated_image.png"):
     output_path = os.path.join(output_directory, filename)
     image.save(output_path)
 
     with open(os.path.join(output_directory, 'computed.json'), 'w') as f:
         json.dump({"deterministic-output-path": output_path}, f)
-    
+
     return
 
 def loadModel(path):
@@ -25,9 +25,9 @@ def loadModel(path):
     return pipe.to("cpu")
 
 
-def generateImage(pipe, prompt): 
+def generateImage(pipe, prompt):
     return pipe(prompt).images[0]
-    
+
 
 
 print("reached")
@@ -41,8 +41,8 @@ else:
     image = generateImage(model, prompt)
 
     saveImage(image)
-    
-    
-    
-    
-    
+
+
+
+
+
