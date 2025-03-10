@@ -40,7 +40,7 @@ Follow the iExec guide for setting up a local dApp:
    -v ./iexec_out:/iexec_out \  
    -e IEXEC_IN=/iexec_in \  
    -e IEXEC_OUT=/iexec_out \  
-   -e IEXEC_DATASET_FILENAME=prompt.txt \
+   -e IEXEC_REQUESTER_SECRET_1="your prompt" \
    image-generator
     ```
 ---
@@ -67,7 +67,7 @@ Follow the iExec guide for setting up a local dApp:
 
 1️⃣ **Deploy your requester secret on iExec**  
 This PoC uses requester secrets. In order to use it, please follow the official iExec guide: 
-🔗 [Create Encrypted Dataset](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/requester-secrets#push-some-requester-secrets-to-the-sms)
+🔗 [Create Requester Secret](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/requester-secrets#push-some-requester-secrets-to-the-sms)
 
 ---
 
