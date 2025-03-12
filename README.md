@@ -55,7 +55,7 @@ Follow the iExec guide for setting up a local iApp:
 ```
 2️⃣ **Deploy Your iApp on iExec**  
    Follow the official iExec guide to deploy a TDX iApp:  
-   🔗 [Deploy a TDX iApp](https://protocol.docs.iex.ec/for-developers/confidential-computing/create-your-first-sgx-app)  
+   🔗 [Deploy a TDX iApp](https://github.com/iExecBlockchainComputing/documentation/blob/feature/tdx-testbed/for-developers/confidential-computing/create-your-first-tdx-app.md)  
 
 3️⃣ **Publish a iApp Order**  
    Once deployed, you must publish a iApp order to allow usage:  
@@ -67,7 +67,7 @@ Follow the iExec guide for setting up a local iApp:
 
 1️⃣ **Deploy your requester secret on iExec**  
 This PoC uses requester secrets. In order to use it, please follow the official iExec guide: 
-🔗 [Create Requester Secret](https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/requester-secrets#push-some-requester-secrets-to-the-sms)
+🔗 [Create Requester Secret](https://protocol.docs.iex.ec/for-developers/confidential-computing/requester-secrets#push-some-requester-secrets-to-the-sms)
 
 ---
 
