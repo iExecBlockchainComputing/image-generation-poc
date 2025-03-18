@@ -34,13 +34,7 @@ The **Image Generator iApp** is a **Confidential Computing application** that ge
 
 
    ```sh  
-   docker run --rm \  
-   -v ./iexec_in:/iexec_in \  
-   -v ./iexec_out:/iexec_out \  
-   -e IEXEC_IN=/iexec_in \  
-   -e IEXEC_OUT=/iexec_out \  
-   -e IEXEC_REQUESTER_SECRET_1="your prompt" \
-   image-generator
+   docker run --rm -v ./iexec_in:/iexec_in -v ./iexec_out:/iexec_out -e IEXEC_IN=/iexec_in -e IEXEC_OUT=/iexec_out -e IEXEC_REQUESTER_SECRET_1="your prompt" image-generator
 ```
     
 ---
