@@ -46,7 +46,7 @@ The **Image Generator iApp** is a **Confidential Computing application** that ge
 ---
 ## 🏁 Run iApp on iExec
 
-> ** Note **  
+> **Note**  
 > Only works with the [iExec SDK 8.13.0-tdx](https://github.com/aimen-djari/iexec-sdk/tree/feature/tdx) (If you do not have access to it, please contact us)
 
 This section allows you to test this PoC without deploying your own iApp, for this purpose, we've deployed an example app for you (``0xDEBE66164C0026f2dBCcaCF2364F07a42c441f2f``). Otherwise, if you’re looking to deploy and run your own iApp on the iExec stack, head to [this section](#deploy-and-run-on-iexec-stack).
