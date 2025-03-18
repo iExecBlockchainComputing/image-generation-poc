@@ -13,13 +13,6 @@ The **Image Generator iApp** is a **Confidential Computing application** that ge
 > - Dockerhub account.  
 > - [iExec SDK 8.13.0-tdx](https://github.com/aimen-djari/iexec-sdk/tree/feature/tdx) (If you do not have access to it, please contact us) installed.  
 
-sections:
-
-1- local
-2- example (+ requester secret)
-3- build
-
-
 ## 🚀 Features
 - **Confidential Computing** ensures that prompts remain private and are processed securely.
 - **Decentralized Execution** using the iExec network.
