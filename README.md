@@ -71,7 +71,7 @@ This PoC uses requester secrets. In order to use it, please follow the official 
 ```
 2️⃣ **Deploy Your iApp on iExec**  
    Follow the official iExec guide to deploy a TDX iApp:  
-   🔗 [Deploy a TDX iApp](https://github.com/iExecBlockchainComputing/documentation/blob/feature/tdx-testbed/for-developers/confidential-computing/create-your-first-tdx-app.md)  
+   🔗 [Deploy a TDX iApp](https://protocol.docs.iex.ec/for-developers/confidential-computing/create-your-first-tdx-app)  
 
 3️⃣ **Publish a iApp Order**  
    Once deployed, you must publish a iApp order to allow usage:  
